@@ -1,8 +1,9 @@
 import { httpClient } from "./HttpRequest";
 
-export function apiGetUnresolvedPage() {
+export function apiGetUnresolvedPage(data) {
   return httpClient.request({
-    url: '/api/UnresolvedPage/list',
-    method: 'GET',
+    url: '/api/UnresolvedPage/page',
+    method: 'POST',
+    data,
   });
 }

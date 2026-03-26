@@ -1,14 +1,14 @@
 <template>
   <div>
-    <ModulePage
+    <PageModule
       :columns="columns"
       :queryData="apiGetUnresolvedPage">
-    </ModulePage>
+    </PageModule>
   </div>
 </template>
 
 <script setup>
-import ModulePage from '@/components/ModulePage/index.vue';
+import PageModule from '@/components/PageModule/index.vue';
 import { apiGetUnresolvedPage } from '@/api';
 
 const columns = [
@@ -18,9 +18,19 @@ const columns = [
     key: 'id',
   },
   {
-    title: 'Name',
-    dataIndex: 'name',
-    key: 'name',
+    title: '创建时间',
+    dataIndex: 'createTime',
+    key: 'createTime',
+  },
+  {
+    title: '图片',
+    prop: 'imagePath',
+    type: 'image',
+  },
+  {
+    title: 'ocr',
+    dataIndex: 'ocrResult',
+    key: 'ocrResult',
   },
 ];
 

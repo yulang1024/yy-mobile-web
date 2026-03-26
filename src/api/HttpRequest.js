@@ -33,6 +33,28 @@ class HttpRequest {
       return Promise.reject(error);
     });
   }
+
+  /**
+   * 获取文件访问URL
+   * @param {string} filePath 文件保存路径
+   * @returns {string}
+   */
+  getFileUrl(filePath) {
+    return `${this.baseURL}/api/file/read?filePath=${filePath}`;
+  }
+
+  /**
+   * 文件上传
+   */
+  uploadFile(file) {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.request({
+      url: '/api/file/save',
+      method: 'POST',
+      data: formData,
+    });
+  }
 }
 
 export default HttpRequest;
