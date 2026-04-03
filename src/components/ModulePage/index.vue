@@ -4,7 +4,8 @@
       :columns="columns"
       :queryData="queryData"
       :showPagination="true"
-      :immediate="true">
+      :immediate="true"
+    >
     </ModulePageTable>
   </div>
 </template>

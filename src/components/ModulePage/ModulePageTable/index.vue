@@ -3,14 +3,14 @@
     <a-table
       :dataSource="tableData"
       :columns="columns"
-      :pagination="showPagination ? pagination : false">
+      :pagination="showPagination ? pagination : false"
+    >
     </a-table>
   </div>
 </template>
 
 <script setup>
 import { onMounted, reactive, ref } from 'vue';
-
 
 const tableData = ref([]);
 

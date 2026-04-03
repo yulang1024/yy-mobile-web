@@ -1,9 +1,6 @@
 <template>
   <div>
-    <PageModule
-      :columns="columns"
-      :queryData="apiGetUnresolvedPage">
-    </PageModule>
+    <PageModule :columns="columns" :queryData="apiGetUnresolvedPage"> </PageModule>
   </div>
 </template>
 
@@ -33,5 +30,4 @@ const columns = [
     key: 'ocrResult',
   },
 ];
-
 </script>

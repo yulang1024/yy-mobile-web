@@ -1,4 +1,4 @@
-import { httpClient } from "./HttpRequest";
+import { httpClient } from './HttpRequest';
 
 export function apiGetUnresolvedPage(data) {
   return httpClient.request({

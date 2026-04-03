@@ -3,7 +3,8 @@
     <a-table
       :dataSource="tableData"
       :columns="computedColumns"
-      :pagination="showPagination ? pagination : false">
+      :pagination="showPagination ? pagination : false"
+    >
     </a-table>
   </div>
 </template>
@@ -11,7 +12,6 @@
 <script setup lang="jsx">
 import { httpClient } from '@/api/HttpRequest';
 import { computed, onMounted, reactive, ref } from 'vue';
-
 
 const tableData = ref([]);
 
@@ -68,14 +68,14 @@ const props = defineProps({
 
 /** 计算 column */
 const computedColumns = computed(() => {
-  return props.columns.map(column => {
+  return props.columns.map((column) => {
     let customRender = column.customRender;
 
     if (column.type === 'image') {
       console.log(column);
       customRender = ({ text, record, index, column }) => {
         const filePath = record[column.prop];
-        const imageUrl =  httpClient.getFileUrl(filePath);
+        const imageUrl = httpClient.getFileUrl(filePath);
         return <img src={imageUrl} width={100} />;
       };
     }

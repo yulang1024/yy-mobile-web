@@ -8,9 +8,7 @@ class HttpRequest {
   baseURL = '';
 
   /** 固定请求头 */
-  headers = {
-
-  };
+  headers = {};
 
   constructor(options) {
     this.baseURL = options.baseURL || '';
@@ -22,16 +20,19 @@ class HttpRequest {
    * @returns {Promise<any>}
    */
   async request(options) {
-    return axios.request({
-      baseURL: this.baseURL,
-      ...options,
-    }).then(response => {
-      console.log(response);
-      return response?.data?.data;
-    }).catch(error => {
-      console.log(error);
-      return Promise.reject(error);
-    });
+    return axios
+      .request({
+        baseURL: this.baseURL,
+        ...options,
+      })
+      .then((response) => {
+        console.log(response);
+        return response?.data?.data;
+      })
+      .catch((error) => {
+        console.log(error);
+        return Promise.reject(error);
+      });
   }
 
   /**
