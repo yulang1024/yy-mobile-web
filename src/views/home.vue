@@ -1,3 +1,3 @@
 <template>
-  <div>home remote</div>
+  <div>home remote page</div>
 </template>
