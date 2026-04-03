@@ -40,7 +40,7 @@ class HttpRequest {
    * @returns {string}
    */
   getFileUrl(filePath) {
-    return `${this.baseURL}/api/file/read?filePath=${filePath}`;
+    return `${this.baseURL}/file/read?filePath=${filePath}`;
   }
 
   /**
@@ -50,7 +50,7 @@ class HttpRequest {
     const formData = new FormData();
     formData.append('file', file);
     return this.request({
-      url: '/api/file/save',
+      url: '/file/save',
       method: 'POST',
       data: formData,
     });
@@ -60,5 +60,5 @@ class HttpRequest {
 export default HttpRequest;
 
 export const httpClient = new HttpRequest({
-  baseURL: 'http://localhost:5173',
+  baseURL: import.meta.env.VITE_API_URL ?? '',
 });

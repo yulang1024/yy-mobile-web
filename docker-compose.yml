@@ -1,0 +1,26 @@
+# 在 CentOS 7 宿主机安装 Docker / docker-compose 后，于项目根目录执行:
+#   docker compose up -d --build
+# 后端在宿主机监听 8888 时，一般需 host-gateway（Docker 20.10+）：
+#   已在下方 extra_hosts 中配置 host.docker.internal
+
+services:
+  yy-mobile-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # 走 Nginx 同源 /api 代理时保持为空
+        VITE_API_URL: ''
+        VITE_APP_TITLE: YY移动端
+        VITE_APP_ENV: production
+    image: yy-mobile-web:latest
+    container_name: yy-mobile-web
+    ports:
+      - '8080:80'
+    environment:
+      # 后端在宿主机（与 vite proxy target 一致）
+      API_UPSTREAM_HOST: host.docker.internal
+      API_UPSTREAM_PORT: '8888'
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    restart: unless-stopped

@@ -1,0 +1,15 @@
+node_modules
+dist
+.git
+.gitignore
+*.md
+.vscode
+.idea
+coverage
+playwright-report
+test-results
+.env*.local
+*.log
+npm-debug.log*
+.DS_Store
+terminals
