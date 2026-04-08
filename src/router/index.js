@@ -14,6 +14,16 @@ const router = createRouter({
       name: 'unresolvedPage',
       component: () => import('@/views/unresolvedPage/index.vue'),
     },
+    {
+      path: '/ocrRecord',
+      name: 'ocrRecord',
+      component: () => import('@/views/ocrRecord/index.vue'),
+    },
+    {
+      path: '/online',
+      name: 'online',
+      component: () => import('@/views/online/index.vue'),
+    },
   ],
 });
 

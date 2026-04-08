@@ -76,7 +76,7 @@ const computedColumns = computed(() => {
       customRender = ({ text, record, index, column }) => {
         const filePath = record[column.prop];
         const imageUrl = httpClient.getFileUrl(filePath);
-        return <img src={imageUrl} width={100} />;
+        return <img src={imageUrl} width={100} height={100} style={{ objectFit: 'contain' }} />;
       };
     }
 
